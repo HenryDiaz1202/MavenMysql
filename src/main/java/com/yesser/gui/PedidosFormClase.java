@@ -42,7 +42,7 @@ public class PedidosFormClase extends JInternalFrame {
         lblTitle.setPreferredSize(new Dimension(80, 40));
 
         //Instanciar objetos contenidos en el formulario
-        JLabel lblCambiarClase = new JLabel("Clase:");
+        JLabel lblCambiarClase = new JLabel("");
         JPanel pnlTitle = new JPanel(); //Panel que contiene el titulo del formulario
         JPanel pnlCentral = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
@@ -54,6 +54,13 @@ public class PedidosFormClase extends JInternalFrame {
         pnlTitle.setBackground(new Color(0, 117, 175));
         lblCambiarClase.setToolTipText("Descripcion de este titulo");
         panel.add(lblCambiarClase);
+
+        // label id
+        JLabel texto0 = new JLabel("ID");
+
+        // JTextField
+        JTextField entradaTexto_0 = new JTextField();
+        entradaTexto_0.setText("0");
 
         // label nombre
         JLabel texto = new JLabel("Nombre");
@@ -67,13 +74,15 @@ public class PedidosFormClase extends JInternalFrame {
 
         // JTextField
         JTextField entradaTexto1 = new JTextField();
-        entradaTexto1.setText("AIFON 12 PRO MAC");
+        entradaTexto1.setText("AIFON 12 PRO MA");
 
         // agregar al panel central
         panel.add(texto);
         panel.add(entradaTexto);
         panel.add(texto1);
         panel.add(entradaTexto1);
+        panel.add(texto0);
+        panel.add(entradaTexto_0);
 
         // boton guardar
         JButton btnGuardar = new JButton();
@@ -103,14 +112,14 @@ public class PedidosFormClase extends JInternalFrame {
         });
         btnGuardar.addActionListener((ActionEvent arg0) -> {
             guardar();
-            Pedidos pedidos = new Pedidos(entradaTexto.getText(),entradaTexto1.getText());
+            Pedidos pedidos = new Pedidos(entradaTexto.getText(),entradaTexto1.getText(),0);
             PedidosDao pedidosDao = new PedidoDaolmpl();
             pedidosDao.insert(pedidos);
             btnGuardar.setEnabled(false);
         });
         btnUpdate.addActionListener((ActionEvent arg0) -> {
             actualizar();
-            Pedidos pedidos = new Pedidos(entradaTexto.getText(),entradaTexto1.getText());
+            Pedidos pedidos = new Pedidos(entradaTexto.getText(),entradaTexto1.getText(),Integer.parseInt(entradaTexto_0.getText()));
             PedidosDao pedidosDao = new PedidoDaolmpl();
             pedidosDao.update(pedidos);
             btnUpdate.setEnabled(false);
