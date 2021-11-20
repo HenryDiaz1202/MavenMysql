@@ -50,7 +50,7 @@ public class PedidoDaolmpl implements PedidosDao {
         Statement stm= null;
         Connection con=null;
 
-        String sql="UPDATE pedidos SET nombre = '"+pedidos.getNombre()+"', pedido = '"+pedidos.getPedido()+"' WHERE id = 2";
+        String sql="UPDATE pedidos SET nombre = '"+pedidos.getNombre()+"', pedido = '"+pedidos.getPedido()+"' WHERE id = 3";
 
         try {
             con= Conexion.conectar();

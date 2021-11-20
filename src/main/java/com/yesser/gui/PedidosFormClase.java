@@ -2,10 +2,7 @@ package com.yesser.gui;
 
 import com.yesser.dao.PedidoDaolmpl;
 import com.yesser.dao.PedidosDao;
-import com.yesser.dao.PersonaDao;
-import com.yesser.dao.PersonaDaoImpl;
 import com.yesser.modelo.Pedidos;
-import com.yesser.modelo.Persona;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
