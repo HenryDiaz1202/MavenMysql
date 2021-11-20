@@ -36,6 +36,10 @@ public class VentanaPrincipal extends JFrame {
         btnNewButton.addActionListener(ActionEvent -> mostrarVentanaClase());
         toolBar.add(btnNewButton);
 
+        JButton btnNewButton1 = new JButton("PEDIDOS");
+        btnNewButton1.addActionListener(ActionEvent -> mostrarVentanaClaseForm());
+        toolBar.add(btnNewButton1);
+
         desktopPane = new JDesktopPane();
         getContentPane().add(desktopPane, BorderLayout.CENTER);
     }
@@ -58,6 +62,10 @@ public class VentanaPrincipal extends JFrame {
 
     public static void mostrarVentanaClase() {
         mostrarVentana(CambiarClase.getInstancia());
+    }
+
+    public static void mostrarVentanaClaseForm() {
+        mostrarVentana(PedidosFormClase.getInstance());
     }
 
     private static void mostrarVentana(JInternalFrame frm) {

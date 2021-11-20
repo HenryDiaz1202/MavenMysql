@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public abstract class PedidoDaolmpl implements PedidosDao {
+public class PedidoDaolmpl implements PedidosDao {
 
     @Override
     public int delete(int id) {
@@ -27,7 +27,7 @@ public abstract class PedidoDaolmpl implements PedidosDao {
         Statement stm= null;
         Connection con=null;
 
-        String sql="INSERT INTO pedidos values (NULL,'"+pedidos.getNombre()+pedidos.getPedido()+"')";
+        String sql="INSERT INTO pedidos (nombre,pedido) values ('"+pedidos.getNombre()+"','"+pedidos.getPedido()+"')";
 
         try {
             con= Conexion.conectar();
@@ -45,6 +45,24 @@ public abstract class PedidoDaolmpl implements PedidosDao {
 
     @Override
     public int update(Pedidos pedidos) {
-        return 0;
+        int registrar = -1;
+
+        Statement stm= null;
+        Connection con=null;
+
+        String sql="UPDATE pedidos SET nombre = '"+pedidos.getNombre()+"', pedido = '"+pedidos.getPedido()+"' WHERE id = 2";
+
+        try {
+            con= Conexion.conectar();
+            stm= con.createStatement();
+            stm.execute(sql);
+            registrar=1;
+            stm.close();
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error: Clase PedidoDaoImple, método update");
+            e.printStackTrace();
+        }
+        return registrar;
     }
 }
