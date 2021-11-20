@@ -8,7 +8,7 @@ public class Conexion {
     public static Connection conectar() {
         Connection con = null;
 
-        String password = "Ingeniero.1";
+        String password = "";
         String usuario = "root";
         String url = "jdbc:mysql://localhost:3306/mavenmysql?user=" + usuario
                 + "&password=" + password;

@@ -10,3 +10,4 @@ public interface PersonaDao {
     public int insert(Persona persona);
     public int update(Persona persona);
 }
+
